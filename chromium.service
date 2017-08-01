@@ -1,0 +1,15 @@
+[Unit]
+Description=Start Chromium
+After=multi-user.target
+
+[Service]
+TimeoutStartSec=10
+Type=simple
+User=pi
+RemainAfterExit=yes
+ExecStart=/bin/bash /home/pi/start.sh start
+ExecStop=/bin/bash /home/pi/start.sh stop
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
